@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import { Button } from './components/Button';
@@ -6,7 +6,7 @@ import { Card, CardContent } from './components/Card';
 import { Badge } from './components/Badge';
 import { Input } from './components/Input';
 import { Textarea } from './components/Textarea';
-import { Github, Linkedin, ShoppingBag, Laptop, Megaphone, Plane, Hotel, Users, MessageSquare, Instagram, Phone, Menu, X } from 'lucide-react';
+import { Github, Linkedin, ShoppingBag, Laptop, Megaphone, Plane, Hotel, Users, Facebook, Instagram, Menu, X } from 'lucide-react';
 import './App.css';
 
 import Cloth from './assets/shop-co.png';
@@ -106,12 +106,14 @@ function App() {
   };
 
   const technologies = {
-    frontend: ['HTML', 'CSS', 'JavaScript', 'Typescript', 'React.js', 'Three.Js', 'Tailwind CSS', 'Bootstrap'],
+    frontend: ['JavaScript', 'Typescript', 'React.js', 'Three.Js', 'Tailwind CSS', 'Bootstrap'],
     backend: ['Node.js', 'Express.js', 'MongoDB', 'Django', 'Firebase', 'MySQL', 'deno'],
+    tools: ['Git & GitHub', 'Webpack', 'Vite', 'Figma', 'Photoshop', 'Bootstrap Studio'],
+    learning: ['Vue.js', 'Docker', 'postgreSQL', 'PyTorch', 'OpenCV', 'Flutter'],
+    other: ['Java', 'C', 'C++', 'Python', 'NumPy', 'Pandas', 'Matplotlib'],
+
     certifications: ['Bachelor\'s Degree', 'Responsive Web Design', 'Frontend Libraries', 'APIs and Microservices'],
-    tools: ['Git & GitHub', 'Webpack', 'Vite', 'Figma', 'Photoshop'],
-    learning: ['Vue.js', 'Docker', 'postgreSQL', 'PyTorch', 'OpenCV'],
-    other: ['Java', 'C', 'C++', 'Python', 'NumPy', 'Pandas', 'Matplotlib']
+
   };
 
   const projects = [
@@ -444,20 +446,20 @@ function App() {
           className="py-6 border-t border-[#1e3a4a]"
         >
           <div className="flex justify-between items-center">
-            <div className="text-sm">
+            <div className="text-l">
               find me in:
               <div className="flex gap-4 mt-2">
                 <a href="https://github.com" className="text-[#8892b0] hover:text-[#64ffda]">
-                  <Github className="h-5 w-5" />
+                  <Github className="h-7 w-7" />
                 </a>
                 <a href="https://linkedin.com" className="text-[#8892b0] hover:text-[#64ffda]">
-                  <Linkedin className="h-5 w-5" />
+                  <Linkedin className="h-7 w-7" />
                 </a>
                 <a href="https://instagram.com" className="text-[#8892b0] hover:text-[#64ffda]">
-                  <Instagram className="h-5 w-5" />
+                  <Instagram className="h-7 w-7" />
                 </a>
                 <a href="https://wa.me/1234567890" className="text-[#8892b0] hover:text-[#64ffda]">
-                  <Phone className="h-5 w-5" />
+                  <Facebook className="h-7 w-7" />
                 </a>
               </div>
             </div>
