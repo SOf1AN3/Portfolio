@@ -6,7 +6,7 @@ import { Card, CardContent } from './components/Card';
 import { Badge } from './components/Badge';
 import { Input } from './components/Input';
 import { Textarea } from './components/Textarea';
-import { Github, Linkedin, ShoppingBag, Laptop, Megaphone, Plane, Hotel, CodeXml, Facebook, Instagram, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Shirt, Lamp, Megaphone, Plane, BedDouble, CodeXml, Facebook, Instagram, Menu, X } from 'lucide-react';
 import './App.css';
 
 import Cloth from './assets/shop-co.png';
@@ -118,14 +118,14 @@ function App() {
 
   const projects = [
     {
-      icon: ShoppingBag,
+      icon: Shirt,
       title: "FashionFusion",
       description: "An e-commerce website for selling trendy clothes with a seamless user experience.",
       technologies: ["React", "Express", "MongoDB"],
       image: Cloth
     },
     {
-      icon: Laptop,
+      icon: Lamp,
       title: "Furniro",
       description: "An e-commerce platform for furniture and home decor items with a modern design.",
       technologies: ["React", "Php", "MySQL"],
@@ -146,7 +146,7 @@ function App() {
       image: Jadoo
     },
     {
-      icon: Hotel,
+      icon: BedDouble,
       title: "Serenity Haven",
       description: "An elegant hotel website with room booking and customer reviews.",
       technologies: ["React", "Express", "Firebase"],
