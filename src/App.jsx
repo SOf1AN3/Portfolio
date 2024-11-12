@@ -6,7 +6,7 @@ import { Card, CardContent } from './components/Card';
 import { Badge } from './components/Badge';
 import { Input } from './components/Input';
 import { Textarea } from './components/Textarea';
-import { Github, Linkedin, ShoppingBag, Laptop, Megaphone, Plane, Hotel, Users, MessageSquare, Instagram, Phone } from 'lucide-react';
+import { Github, Linkedin, ShoppingBag, Laptop, Megaphone, Plane, Hotel, Users, MessageSquare, Instagram, Phone, Menu, X } from 'lucide-react';
 import './App.css';
 
 import Cloth from './assets/shop-co.png';
@@ -39,6 +39,7 @@ function App() {
 
   const [errors, setErrors] = useState({});
   const [isSending, setIsSending] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -84,8 +85,15 @@ function App() {
     });
   };
 
+  const handleScroll = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    element.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
   const technologies = {
-    frontend: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Tailwind CSS', 'Bootstrap'],
+    frontend: ['HTML', 'CSS', 'JavaScript', 'Typescript', 'React.js', 'Tailwind CSS', 'Bootstrap'],
     backend: ['Node.js', 'Express.js', 'MongoDB', 'Django', 'Firebase', 'MySQL'],
     certifications: ['Bachelor\'s Degree', 'Responsive Web Design', 'Frontend Libraries', 'APIs and Microservices'],
     tools: ['Git & GitHub', 'Webpack', 'Vite', 'Figma', 'Photoshop'],
@@ -155,11 +163,16 @@ function App() {
           className="flex justify-between items-center mb-16 py-4 border-b border-[#1e3a4a]"
         >
           <span className="text-lg text-[#64ffda]">@SOf1AN3</span>
-          <div className="flex gap-8">
-            <a href="#hello" className="hover:text-[#64ffda] transition-colors border-b-2 border-[#f97316]">_hello</a>
-            <a href="#about" className="hover:text-[#64ffda] transition-colors">_about-me</a>
-            <a href="#projects" className="hover:text-[#64ffda] transition-colors">_projects</a>
-            <a href="#contact" className="hover:text-[#64ffda] transition-colors">_contact-me</a>
+          <div className="flex gap-8 md:hidden">
+            <button onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? <X className="h-6 w-6 text-[#64ffda]" /> : <Menu className="h-6 w-6 text-[#64ffda]" />}
+            </button>
+          </div>
+          <div className={`flex-col md:flex-row md:flex gap-8 ${menuOpen ? 'flex' : 'hidden'}`}>
+            <a href="#hello" onClick={(e) => handleScroll(e, 'hello')} className="hover:text-[#64ffda] transition-colors border-b-2 border-[#f97316]">_hello</a>
+            <a href="#about" onClick={(e) => handleScroll(e, 'about')} className="hover:text-[#64ffda] transition-colors">_about-me</a>
+            <a href="#projects" onClick={(e) => handleScroll(e, 'projects')} className="hover:text-[#64ffda] transition-colors">_projects</a>
+            <a href="#contact" onClick={(e) => handleScroll(e, 'contact')} className="hover:text-[#64ffda] transition-colors">_contact-me</a>
           </div>
         </motion.nav>
 
@@ -168,6 +181,7 @@ function App() {
           animate="animate"
           variants={staggerContainer}
           className="mb-32 pt-20"
+          id="hello"
         >
           <motion.p variants={fadeIn} className="text-[#64ffda] mb-4">Hi all. I am</motion.p>
           <motion.h1
@@ -194,8 +208,8 @@ function App() {
           className="mb-32"
           id="about"
         >
-          <motion.h2 variants={fadeIn} className="text-2xl text-[#64ffda] mb-8 pt-13">
-            <span className="text-[#f97316]">&gt;</span> Technologies & Tools
+          <motion.h2 variants={fadeIn} className="text-3xl text-[#64ffda] mb-8 pt-13">
+            <span className="text-[#f97316] mt-10">&gt;</span> Technologies & Tools
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -229,7 +243,7 @@ function App() {
           className="mb-32"
           id="projects"
         >
-          <motion.h2 variants={fadeIn} className="text-2xl text-[#64ffda] mb-8 pt-13">
+          <motion.h2 variants={fadeIn} className="text-3xl text-[#64ffda] mb-8 mt-15">
             <span className="text-[#f97316]">&gt;</span> Recent Projects
           </motion.h2>
           <motion.div
