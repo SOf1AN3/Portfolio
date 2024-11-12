@@ -275,7 +275,7 @@ function App() {
             <span className="text-[#f97316]">&gt;</span> Contact Me
           </motion.h2>
           <motion.div variants={fadeIn}>
-            <Card className="bg-[#011627]/50 border border-[#1e3a4a] backdrop-blur-sm p-5 w-[1200px] mx-auto">
+            <Card className="bg-[#011627]/50 border border-[#1e3a4a] backdrop-blur-sm p-5 w-full max-w-5xl mx-auto">
               <CardContent className="p-6">
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div>
@@ -283,7 +283,7 @@ function App() {
                     <Input
                       id="name"
                       placeholder="your_name"
-                      className="bg-[#011627] border-[#1e3a4a] text-[#ccd6f6] focus:border-[#64ffda] focus:ring-[#64ffda]"
+                      className="bg-[#011627] border-[#1e3a4a] text-[#ccd6f6] focus:border-[#64ffda] focus:ring-[#64ffda] w-full"
                       value={formData.name}
                       onChange={handleChange}
                     />
@@ -295,7 +295,7 @@ function App() {
                       id="email"
                       type="email"
                       placeholder="your_email"
-                      className="bg-[#011627] border-[#1e3a4a] text-[#ccd6f6] focus:border-[#64ffda] focus:ring-[#64ffda]"
+                      className="bg-[#011627] border-[#1e3a4a] text-[#ccd6f6] focus:border-[#64ffda] focus:ring-[#64ffda] w-full"
                       value={formData.email}
                       onChange={handleChange}
                     />
@@ -306,13 +306,13 @@ function App() {
                     <Textarea
                       id="message"
                       placeholder="your_message"
-                      className="bg-[#011627] border-[#1e3a4a] text-[#ccd6f6] focus:border-[#64ffda] focus:ring-[#64ffda] min-h-[150px]"
+                      className="bg-[#011627] border-[#1e3a4a] text-[#ccd6f6] focus:border-[#64ffda] focus:ring-[#64ffda] min-h-[150px] w-full"
                       value={formData.message}
                       onChange={handleChange}
                     />
                     {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
                   </div>
-                  <Button type="submit" className="bg-[#f97316] hover:bg-[#fb923c] text-white p-2 w-80">
+                  <Button type="submit" className="bg-[#f97316] hover:bg-[#fb923c] text-white p-2 w-full md:w-80">
                     {isSending ? 'Sending...' : 'send-message'}
                   </Button>
                 </form>
