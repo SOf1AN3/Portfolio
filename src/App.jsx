@@ -282,22 +282,22 @@ function App() {
           className="mb-32 pt-20"
           id="hello"
         >
-          <motion.p variants={fadeIn} className="text-[#64ffda] mb-4">Hi all. I am</motion.p>
+          <motion.p variants={fadeIn} className="text-[#64ffda] mb-4 hi">Hi all. I am</motion.p>
           <motion.h1
             variants={fadeIn}
-            className="text-6xl md:text-7xl font-bold mb-6 text-[#ccd6f6]"
+            className="text-6xl md:text-8xl font-bold mb-6 text-[#ccd6f6]"
           >
             Sofiane ASMA
           </motion.h1>
-          <motion.div variants={fadeIn} className="text-2xl text-[#64ffda] mb-8">
+          <motion.div variants={fadeIn} className="text-2xl text-[#64ffda] my-8">
             <span className="text-[#f97316]">&gt;</span> Fullstack developer
           </motion.div>
           <motion.div variants={fadeIn} className="text-sm opacity-70 mb-8">
-            <p className='my-1'>// I'm a Fullstack Developer skilled in <b className="text-[#64ffda]">JavaScript</b>, <b className="text-[#64ffda]">React</b>, and the <b className="text-[#64ffda]">MERN</b> stack.</p>
-            <p className='my-1'>// I enjoy building responsive web apps and solving complex challenges.</p>
-            <p className='my-1'>// Currently, I'm exploring <b className='text-[#64ffda]'>AI</b> and computer vision to create tech solutions for real-world impact.</p>
-            <p className='my-1'>// Here is the link of my Github page</p>
-            <p className="text-[#64ffda] className='my-1'">const <span className="text-[#f97316] className='my-1'">githubLink</span> = <span className="text-[#a8b2d1]">"https://github.com/SOf1AN3"</span></p>
+            <p className='my-2 text-xl'>// I'm a Fullstack Developer skilled in <b className="text-[#64ffda]">JavaScript</b>, <b className="text-[#64ffda]">React</b>, and the <b className="text-[#64ffda]">MERN</b> stack.</p>
+            <p className='my-2 text-xl'>// I enjoy building responsive web apps and solving complex challenges.</p>
+            <p className='my-2 text-xl'>// Currently, I'm exploring <b className='text-[#64ffda]'>AI</b> and computer vision to create tech solutions for real-world impact.</p>
+            <p className='my-2 text-xl'>// Here is the link of my Github page</p>
+            <p className="text-[#64ffda] my-2 text-xl">const <span className="text-[#f97316] className='my-1'">githubLink</span> = <a href="https://github.com/SOf1AN3"><span className="text-[#64ffda] hover:text-[#f97316]">"https://github.com/SOf1AN3"</span></a></p>
           </motion.div>
         </motion.section>
 
