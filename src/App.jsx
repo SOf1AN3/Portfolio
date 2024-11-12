@@ -6,7 +6,7 @@ import { Card, CardContent } from './components/Card';
 import { Badge } from './components/Badge';
 import { Input } from './components/Input';
 import { Textarea } from './components/Textarea';
-import { Github, Linkedin, ShoppingBag, Laptop, Megaphone, Plane, Hotel, Users, Facebook, Instagram, Menu, X } from 'lucide-react';
+import { Github, Linkedin, ShoppingBag, Laptop, Megaphone, Plane, Hotel, CodeXml, Facebook, Instagram, Menu, X } from 'lucide-react';
 import './App.css';
 
 import Cloth from './assets/shop-co.png';
@@ -153,7 +153,7 @@ function App() {
       image: HotelLanding
     },
     {
-      icon: Users,
+      icon: CodeXml,
       title: "Codecrafters.",
       description: "A dynamic website for our development team, showcasing our skills and projects.",
       technologies: ["React", "Tailwind CSS"],
@@ -389,7 +389,7 @@ function App() {
           className="mb-32"
           id="contact"
         >
-          <motion.h2 variants={fadeIn} className="text-2xl text-[#64ffda] mb-8">
+          <motion.h2 variants={fadeIn} className="text-3xl text-[#64ffda] mb-8">
             <span className="text-[#f97316]">&gt;</span> Contact Me
           </motion.h2>
           <motion.div variants={fadeIn}>
