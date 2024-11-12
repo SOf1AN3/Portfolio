@@ -106,12 +106,12 @@ function App() {
   };
 
   const technologies = {
-    frontend: ['HTML', 'CSS', 'JavaScript', 'Typescript', 'React.js', 'Tailwind CSS', 'Bootstrap'],
-    backend: ['Node.js', 'Express.js', 'MongoDB', 'Django', 'Firebase', 'MySQL'],
+    frontend: ['HTML', 'CSS', 'JavaScript', 'Typescript', 'React.js', 'Three.Js', 'Tailwind CSS', 'Bootstrap'],
+    backend: ['Node.js', 'Express.js', 'MongoDB', 'Django', 'Firebase', 'MySQL', 'deno'],
     certifications: ['Bachelor\'s Degree', 'Responsive Web Design', 'Frontend Libraries', 'APIs and Microservices'],
     tools: ['Git & GitHub', 'Webpack', 'Vite', 'Figma', 'Photoshop'],
-    learning: ['Vue.js', 'Three.Js', 'Docker', 'postgreSQL'],
-    other: ['Java', 'C', 'C++', 'Python']
+    learning: ['Vue.js', 'Docker', 'postgreSQL', 'PyTorch', 'OpenCV'],
+    other: ['Java', 'C', 'C++', 'Python', 'NumPy', 'Pandas', 'Matplotlib']
   };
 
   const projects = [
@@ -126,14 +126,14 @@ function App() {
       icon: Laptop,
       title: "Furniro",
       description: "An e-commerce platform for furniture and home decor items with a modern design.",
-      technologies: ["React", "Node.js", "PostgreSQL"],
+      technologies: ["React", "Php", "MySQL"],
       image: Furniro
     },
     {
       icon: Megaphone,
       title: "SetitUp",
       description: "A sleek landing page for a digital marketing agency showcasing services and case studies.",
-      technologies: ["React", "Express", "Tailwind CSS"],
+      technologies: ["React", "Tailwind CSS"],
       image: Digital
     },
     {
@@ -147,14 +147,14 @@ function App() {
       icon: Hotel,
       title: "Serenity Haven",
       description: "An elegant hotel website with room booking and customer reviews.",
-      technologies: ["React", "Node.js", "Firebase"],
+      technologies: ["React", "Express", "Firebase"],
       image: HotelLanding
     },
     {
       icon: Users,
       title: "Codecrafters.",
       description: "A dynamic website for our development team, showcasing our skills and projects.",
-      technologies: ["PHP", "MySQL", "JavaScript"],
+      technologies: ["React", "Tailwind CSS"],
       image: Codecrafters,
       link: "https://codecrafters-delta.vercel.app/"
     },
@@ -241,7 +241,7 @@ function App() {
                 <div className="relative flex flex-col md:flex-row items-center gap-8">
                   {[
                     { id: 'hello', label: '_hello' },
-                    { id: 'about', label: '_about-me' },
+                    { id: 'about', label: '_technologies' },
                     { id: 'projects', label: '_projects' },
                     { id: 'contact', label: '_contact-me' }
                   ].map((item, index) => (
@@ -287,14 +287,17 @@ function App() {
             variants={fadeIn}
             className="text-6xl md:text-7xl font-bold mb-6 text-[#ccd6f6]"
           >
-            Sofiane Asma
+            Sofiane ASMA
           </motion.h1>
           <motion.div variants={fadeIn} className="text-2xl text-[#64ffda] mb-8">
             <span className="text-[#f97316]">&gt;</span> Fullstack developer
           </motion.div>
           <motion.div variants={fadeIn} className="text-sm opacity-70 mb-8">
-            <p>// Here is the link of my Github page</p>
-            <p className="text-[#64ffda]">const <span className="text-[#f97316]">githubLink</span> = <span className="text-[#a8b2d1]">"https://github.com/SOf1AN3"</span></p>
+            <p className='my-1'>// I'm a Fullstack Developer skilled in <b className="text-[#64ffda]">JavaScript</b>, <b className="text-[#64ffda]">React</b>, and the <b className="text-[#64ffda]">MERN</b> stack.</p>
+            <p className='my-1'>// I enjoy building responsive web apps and solving complex challenges.</p>
+            <p className='my-1'>// Currently, I'm exploring <b className='text-[#64ffda]'>AI</b> and computer vision to create tech solutions for real-world impact.</p>
+            <p className='my-1'>// Here is the link of my Github page</p>
+            <p className="text-[#64ffda] className='my-1'">const <span className="text-[#f97316] className='my-1'">githubLink</span> = <span className="text-[#a8b2d1]">"https://github.com/SOf1AN3"</span></p>
           </motion.div>
         </motion.section>
 
@@ -316,12 +319,12 @@ function App() {
               <motion.div key={category} variants={fadeIn}>
                 <Card className="bg-[#011627]/50 border border-[#1e3a4a] backdrop-blur-sm p-5 pt-7 text-base">
                   <CardContent className="p-6">
-                    <h3 className="text-[#64ffda] mb-4 flex items-center gap-2">
+                    <h3 className="text-[#64ffda] text-2xl mb-4 flex items-center gap-2">
                       $ {category}
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {techs.map(tech => (
-                        <Badge key={tech} variant="secondary" className="bg-[#1e3a4a] text-[#64ffda] text-sm hover:bg-[#2a4a5e]">
+                        <Badge key={tech} variant="secondary" className="bg-[#1e3a4a] text-[#64ffda] text-xl hover:bg-[#2a4a5e]">
                           {tech}
                         </Badge>
                       ))}
