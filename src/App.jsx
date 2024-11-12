@@ -294,7 +294,7 @@ function App() {
           </motion.div>
           <motion.div variants={fadeIn} className="text-sm opacity-70 mb-8">
             <p>// Here is the link of my Github page</p>
-            <p className="text-[#64ffda]">const <span className="text-[#f97316]">githubLink</span> = <span className="text-[#a8b2d1]">"https://github.com/sofiane-asma"</span></p>
+            <p className="text-[#64ffda]">const <span className="text-[#f97316]">githubLink</span> = <span className="text-[#a8b2d1]">"https://github.com/SOf1AN3"</span></p>
           </motion.div>
         </motion.section>
 
