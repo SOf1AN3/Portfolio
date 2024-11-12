@@ -249,7 +249,7 @@ function App() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleScroll(e, item.id)}
-                      className={`relative hover:text-[#64ffda] transition-colors ${activeSection === item.id ? 'text-[#64ffda]' : ''
+                      className={`relative hover:font-extrabold hover:text-white transition-colors ${activeSection === item.id ? 'text-[#64ffda]' : ''
                         }`}
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
