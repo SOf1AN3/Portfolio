@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import { Button } from './components/Button';
 import { Card, CardContent } from './components/Card';
@@ -87,9 +87,22 @@ function App() {
 
   const handleScroll = (e, id) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    element.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
+    setActiveSection(id);
+
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const headerHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 50);
   };
 
   const technologies = {
@@ -139,7 +152,7 @@ function App() {
     },
     {
       icon: Users,
-      title: "CodeCrafters",
+      title: "Codecrafters.",
       description: "A dynamic website for our development team, showcasing our skills and projects.",
       technologies: ["PHP", "MySQL", "JavaScript"],
       image: Codecrafters,
@@ -154,25 +167,111 @@ function App() {
     // }
   ];
 
+  // Ajoutez ces states au début du composant App
+  const [activeSection, setActiveSection] = useState('hello');
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+
+  // Ajoutez cet useEffect pour gérer le redimensionnement
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      const sections = ['hello', 'about', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 100; // offset pour le header
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const height = element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#001219] via-[#013440] to-[#01222e] font-mono text-[#a8b2d1]">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <motion.nav
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="flex justify-between items-center mb-16 py-4 border-b border-[#1e3a4a]"
+          className="fixed top-0 left-0 right-0 z-50 bg-[#001219]/90 backdrop-blur-sm"
         >
-          <span className="text-lg text-[#64ffda]">@SOf1AN3</span>
-          <div className="flex gap-8 md:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <X className="h-6 w-6 text-[#64ffda]" /> : <Menu className="h-6 w-6 text-[#64ffda]" />}
-            </button>
-          </div>
-          <div className={`flex-col md:flex-row md:flex gap-8 ${menuOpen ? 'flex' : 'hidden'}`}>
-            <a href="#hello" onClick={(e) => handleScroll(e, 'hello')} className="hover:text-[#64ffda] transition-colors border-b-2 border-[#f97316]">_hello</a>
-            <a href="#about" onClick={(e) => handleScroll(e, 'about')} className="hover:text-[#64ffda] transition-colors">_about-me</a>
-            <a href="#projects" onClick={(e) => handleScroll(e, 'projects')} className="hover:text-[#64ffda] transition-colors">_projects</a>
-            <a href="#contact" onClick={(e) => handleScroll(e, 'contact')} className="hover:text-[#64ffda] transition-colors">_contact-me</a>
+          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center border-b border-[#1e3a4a]">
+            <span className="text-lg text-[#64ffda]">@SOf1AN3</span>
+            <div className="flex gap-8 md:hidden">
+              <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+                {menuOpen ? <X className="h-6 w-6 text-[#64ffda]" /> : <Menu className="h-6 w-6 text-[#64ffda]" />}
+              </button>
+            </div>
+            <AnimatePresence>
+              <motion.div
+                initial={false}
+                animate={{
+                  height: (menuOpen || isDesktop) ? 'auto' : 0,
+                  opacity: (menuOpen || isDesktop) ? 1 : 0
+                }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut"
+                }}
+                className={`absolute md:relative top-full left-0 right-0 md:top-auto bg-[#001219]/90 md:bg-transparent
+          flex md:flex flex-col md:flex-row items-center gap-8 p-4 md:p-0
+          backdrop-blur-sm md:backdrop-blur-none border-b border-[#1e3a4a] md:border-none
+          origin-top overflow-hidden`}
+              >
+                <div className="relative flex flex-col md:flex-row items-center gap-8">
+                  {[
+                    { id: 'hello', label: '_hello' },
+                    { id: 'about', label: '_about-me' },
+                    { id: 'projects', label: '_projects' },
+                    { id: 'contact', label: '_contact-me' }
+                  ].map((item, index) => (
+                    <motion.a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      onClick={(e) => handleScroll(e, item.id)}
+                      className={`relative hover:text-[#64ffda] transition-colors ${activeSection === item.id ? 'text-[#64ffda]' : ''
+                        }`}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 * index }}
+                    >
+                      {item.label}
+                      {activeSection === item.id && (
+                        <motion.div
+                          layoutId="activeSection"
+                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#f97316]"
+                          transition={{
+                            type: "spring",
+                            stiffness: 380,
+                            damping: 30
+                          }}
+                        />
+                      )}
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </motion.nav>
 
