@@ -110,7 +110,7 @@ function App() {
     backend: ['Node.js', 'Express.js', 'MongoDB', 'Django', 'Firebase', 'MySQL', 'deno'],
     tools: ['Git & GitHub', 'Webpack', 'Vite', 'Figma', 'Photoshop', 'Bootstrap Studio'],
     learning: ['Vue.js', 'Docker', 'postgreSQL', 'PyTorch', 'OpenCV', 'Flutter'],
-    other: ['Java', 'C', 'C++', 'Python', 'NumPy', 'Pandas', 'Matplotlib'],
+    other: ['Jest', 'Java', 'C', 'C++', 'Python', 'NumPy', 'Pandas', 'Matplotlib'],
 
     certifications: ['Bachelor\'s Degree', 'Responsive Web Design', 'Frontend Libraries', 'APIs and Microservices'],
 
@@ -119,7 +119,7 @@ function App() {
   const projects = [
     {
       icon: Shirt,
-      title: "FashionFusion",
+      title: "Shop.co",
       description: "An e-commerce website for selling trendy clothes with a seamless user experience.",
       technologies: ["React", "Express", "MongoDB"],
       image: Cloth
