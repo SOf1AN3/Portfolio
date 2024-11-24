@@ -110,7 +110,7 @@ function App() {
     backend: ['Node.js', 'Express.js', 'MongoDB', 'Django', 'Firebase', 'MySQL', 'deno'],
     tools: ['Git & GitHub', 'Webpack', 'Vite', 'Figma', 'Photoshop', 'Bootstrap Studio'],
     learning: ['Vue.js', 'Docker', 'postgreSQL', 'PyTorch', 'OpenCV', 'Flutter'],
-    other: ['Jest', 'Java', 'C', 'C++', 'Python', 'NumPy', 'Pandas', 'Matplotlib'],
+    other: ['Jest', 'Java', 'C', 'C++', 'Python', 'NumPy', 'Pandas', 'Matplotlib', 'React Native'],
 
     certifications: ['Bachelor\'s Degree', 'Responsive Web Design', 'Frontend Libraries', 'APIs and Microservices'],
 
