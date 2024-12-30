@@ -106,10 +106,10 @@ function App() {
   };
 
   const technologies = {
-    frontend: ['JavaScript', 'Typescript', 'React.js', 'Three.Js', 'Tailwind CSS', 'Bootstrap'],
+    frontend: ['JavaScript', 'Typescript', 'React.js', 'Three.Js', 'Tailwind CSS', 'Bootstrap', 'NextJs'],
     backend: ['Node.js', 'Express.js', 'MongoDB', 'Django', 'Firebase', 'MySQL', 'deno'],
     tools: ['Git & GitHub', 'Webpack', 'Vite', 'Figma', 'Photoshop', 'Bootstrap Studio'],
-    learning: ['Vue.js', 'Docker', 'postgreSQL', 'PyTorch', 'OpenCV', 'Flutter'],
+    learning: ['Sveltekit', 'Docker', 'Supabase', 'PyTorch', 'OpenCV', 'Flutter'],
     other: ['Jest', 'Java', 'C', 'C++', 'Python', 'NumPy', 'Pandas', 'Matplotlib', 'React Native'],
 
     certifications: ['Bachelor\'s Degree', 'Responsive Web Design', 'Frontend Libraries', 'APIs and Microservices'],
